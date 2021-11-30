@@ -13,7 +13,7 @@ canvas.height = 600;
 // const spriteWidth = 575;
 // const spriteHeight = 523;
 // let spriteState = 'idle'
-var runSpriteSheetUrl = './assets/runTest2.png'
+var runSpriteSheetUrl = './assets/firstRun.png'
 var runSprite = new Image();
 runSprite.src = runSpriteSheetUrl;
 
@@ -43,7 +43,7 @@ const animationStates = [
 const runAnimationStates = [
     {
         name:'run',
-        frames:5,
+        frames:6,
     }
 ];
 
@@ -56,11 +56,11 @@ canvas.addEventListener("mousedown", function() {
 
 
 canvas.addEventListener("mouseup", function() {
-    backgroundSpeed = 10;
-    showSpeed.innerHTML = backgroundSpeed;
-    spriteLayer.staggerFrames = 10
-    // spriteLayer.spriteState = 'fall';
-    // setTimeout(()=> {spriteLayer.spriteState = 'idle'}, 425)
+    setTimeout(function(){window.location.href = '../Trip/trip.html'}, 100);
+    // backgroundSpeed = 10;
+    // showSpeed.innerHTML = backgroundSpeed;
+    // spriteLayer.staggerFrames = 10
+   
 })
 
 

@@ -12,6 +12,7 @@
 
 #container{
     border: 1px solid white;
+    margin-bottom: 5%;
 }
 
 canvas {
@@ -24,4 +25,9 @@ canvas {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     border: 1px solid white;
+}
+
+.button{
+    margin-top: 5%;
+    margin-bottom: 5%;
 }

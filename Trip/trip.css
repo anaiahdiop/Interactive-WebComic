@@ -2,19 +2,32 @@
     position: relative;
     text-align: center;
     color: white;
-    margin-top: 1%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    
 }
 .pic{
     width: 75%;
     height: 100%;
 }
 
-.text{
+.hide{
+    top: 30%;
     position: absolute;
-    display: inline;
-    transform: translate(-50%, -50%);
+    width: 751px;
+    height: 250px;
 }
-                                                     
+.text{
+    display:none;
+    position: absolute;
+    font-size: 50px;
+   
+}
+
+.hide:hover + .text{
+    display:block;
+}
+
 *{
    box-sizing: border-box;
  }
@@ -33,6 +46,6 @@
    }
 
    .button{
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
+       margin-top: 5%;
+       margin-bottom: 5%;
+   }

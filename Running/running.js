@@ -127,7 +127,6 @@ showSpeed.innerHTML = backgroundSpeed;
     layer2,spriteLayer,layer1];
 
 
-
     function parallax(){ 
         ctx.clearRect(0,0,canvas.width,canvas.height);
         layers.forEach((layer) =>{

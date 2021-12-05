@@ -39,11 +39,12 @@ class Sprite{
   }
 };
 
+
 //VARIABLES
 var canvas = document.querySelector('canvas');
 var ctx = canvas.getContext('2d');
-canvas.width = 800;
-canvas.height = 360;
+canvas.width = 900;
+canvas.height = 500;
 var timeout;
 
 //pop up 
@@ -53,31 +54,37 @@ moveImg.src = './assets/move.png'
 
 //animation
 let gameFrame = 0;
+const backgroundLayer1 = new Image();
+backgroundLayer1.src = './assets/1.png';
+const backgroundLayer2 = new Image();
+backgroundLayer2.src = './assets/2.png';
+const backgroundLayer3 = new Image();
+backgroundLayer3.src = './assets/3.png';
+const backgroundLayer4 = new Image();
+backgroundLayer4.src = './assets/4.png';
+const backgroundLayer5 = new Image();
+backgroundLayer5.src = './assets/5.png';
+const backgroundLayer6 = new Image();
+backgroundLayer6.src = './assets/6.png';
+
 const spriteAnimations = [];
-const animationStates = [
+const transformationStates = [
     {
-        name:'idle',
-        frames:7,
+        name:'first',
+        frames: ['url(./assets/1.png)','url(./assets/2.png)','url(./assets/3.png)'],
     },
     {
-        name:'jump',
-        frames:7,
+        name:'second',
+        frames: ['url(./assets/4.png)','url(./assets/5.png)','url(./assets/6.png)'],
     },
-    {
-        name:'fall',
-        frames:7,
-    },
-    {
-        name:'run',
-        frames:9,
-    },
+   
 
 ];
 
 var SpriteSheetUrl = './assets/shadow_dog.png'
 var sprite = new Image();
 sprite.src = SpriteSheetUrl;
-const spriteLayer = new Sprite(sprite, 0, 300, 228, animationStates, "run", 10)
+const spriteLayer = new Sprite(sprite, 0, 300, 228, transformationStates, "run", 10)
 console.log(spriteLayer.findCoordinates())
 
 // const spriteLayer = new Sprite(sprite, 0, 575, 523, animationStates, "run", 10)
@@ -100,20 +107,51 @@ canvas.addEventListener("click", (e) => {
 })
 
 //FUNCTIONS
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function sequence(){
+  console.log(transformationStates)
+  // console.log(transformationStates.length)
+  
+  transformationStates.forEach((state) => {
+    state.frames.forEach((frame) => {
+      canvas.style.setProperty('--background', `${frame}`)
+      await sleep(2000);
+  });
+  
+  
+    // transformationStates[i].frames.forEach((frame) => {
+    //   console.log(frame)
+    //   // setTimeout(() => {canvas.style.setProperty('--background', `${frame}`)},1150);
+    //  canvas.style.setProperty('--background', `${frame}`)
+    //  await sleep(2000);
+
+    // });
+  })
+};
+
+sequence();
+
+// async function demo() {
+//   console.log('Taking a break...');
+//   await sleep(2000);
+//   console.log('Two seconds later, showing sleep in a loop...');
+
+//   // Sleep in loop
+//   for (let i = 0; i < 5; i++) {
+//     if (i === 3)
+//       await sleep(2000);
+//     console.log(i);
+//   }
+// }
+
+// demo();
+
 function popUp(x,y){
   ctx.drawImage(moveImg, x, y, 100, 100);
 }
-
-function sequence(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-        spriteLayer.update();
-        requestAnimationFrame(sequence);
-};
-
-// sequence();
-
-
-
 
 // e.offsetX is the mouse coordinate for my mouse
 //(name of property , new value)
@@ -124,3 +162,4 @@ function sequence(){
 // go through the frames of my animation 
 //I set the current frame to my background image
 //when i get to last frame change animation state 
+

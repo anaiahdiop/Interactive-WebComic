@@ -1,11 +1,11 @@
 .frame {
      --x: 0px;  /* double hyphen is a css variable*/
      --height: 0px;
-    background-image: url(./assets/blinkTop.png), url(./assets/blinkBottom.png), url(./assets/forest.jpeg);
+    background-image: url(./assets/blinkTop.png), url(./assets/blinkBottom.png), url(./assets/panorama.png);
     background-repeat: no-repeat;
     background-position: top, bottom, var(--x); /* how to actually use a variable */
-    background-size: 640px var(--height), 640px var(--height),1280px 360px; /* sets a bigger size background than the viewport*/ 
-    width: 640px; height: 360px; /* this sets the size of the viewing frame*/
+    background-size: 900px var(--height), 900px var(--height), 1800px 500px; /* sets a bigger size background than the viewport*/ 
+    width: 900px; height: 500px; /* this sets the size of the viewing frame*/
     border: 1px solid white;
     transition: background-size 1s, background-size 1s,background-position .15s; /* any time we change this property we want to do it with a transition of _ secs*/
     

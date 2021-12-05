@@ -10,16 +10,15 @@
     height: 100%;
 }
 
-.hide{
-    top: 30%;
-    position: absolute;
-    width: 751px;
-    height: 250px;
+#first{
+    top: 25%;
 }
 .text{
-    display:none;
+    /* display:none; */
     position: absolute;
-    font-size: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
    
 }
 

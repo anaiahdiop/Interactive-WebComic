@@ -13,7 +13,7 @@ moveImg.src = './assets/move.png'
 //animation
 let gameFrame = 0;
 const backgroundLayer1 = new Image();
-backgroundLayer1.src = './assets/Transformation/transoorm1.png';
+backgroundLayer1.src = './assets/Transformation/transform1.png';
 const backgroundLayer2 = new Image();
 backgroundLayer2.src = './assets/Transformation/transform2.png';
 const backgroundLayer3 = new Image();

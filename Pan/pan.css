@@ -1,7 +1,7 @@
 .frame {
      --x: -400px;  /* double hyphen is a css variable*/
      --height: 0px;
-     --background: url(./assets/panorama.png);
+     --background: url(./assets/Transformation/transform1.png);
     background-image: url(./assets/blinkTop.png), url(./assets/blinkBottom.png), var(--background);
     background-repeat: no-repeat;
     background-position: top, bottom, var(--x); /* how to actually use a variable */

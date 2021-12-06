@@ -7,7 +7,7 @@ var timeout;
 
 //pop up 
 const moveImg = new Image();
-moveImg.src = './assets/move.png'
+moveImg.src = ''
 
 
 //animation
@@ -97,6 +97,7 @@ const task = async () => {
     setTimeout(() => {ctx.clearRect(0,0,canvas.width,canvas.height)},100);
     canvas.style.setProperty('--height', 515 + "px");
     setTimeout(() => {canvas.style.setProperty('--height', 0 + "px")},500);
+    moveImg.src = './assets/move.png';
     await sleep(250);
 
     // transformationStates.forEach((state) => {

@@ -76,9 +76,7 @@ const transformationStates = [
     {
         name:'second',
         frames: ['url(./assets/4.png)','url(./assets/5.png)','url(./assets/6.png)'],
-    },
-   
-
+    }
 ];
 
 var SpriteSheetUrl = './assets/shadow_dog.png'
@@ -107,19 +105,53 @@ canvas.addEventListener("click", (e) => {
 })
 
 //FUNCTIONS
-function sleep(ms) {
+async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function sequence(){
-  console.log(transformationStates)
-  // console.log(transformationStates.length)
-  
-  transformationStates.forEach((state) => {
-    state.frames.forEach((frame) => {
+// (async function() {
+//   const response = await doSomethingAsync();
+//   console.log(response)
+// })();
+
+const list = [1, 2, 3, 4]
+const task = async () => {
+  for (const state of transformationStates) {
+    // console.log(state.frames)
+    for (const frame of state.frames) {
       canvas.style.setProperty('--background', `${frame}`)
-      await sleep(2000);
-  });
+      await sleep(500);
+    }
+    setTimeout(() => {ctx.clearRect(0,0,canvas.width,canvas.height)},100);
+    canvas.style.setProperty('--height', 515 + "px");
+    setTimeout(() => {canvas.style.setProperty('--height', 0 + "px")},1150);
+    await sleep(1000);
+
+    // transformationStates.forEach((state) => {
+  //   await sleep(2000);
+  //   state.frames.forEach((frame) => {
+  //     canvas.style.setProperty('--background', `${frame}`)
+  //     await sleep(2000);
+  // });
+  }
+  canvas.style.setProperty('--background', 'url(./assets/finalMove.png')
+  await sleep(1500);
+  window.location.href = '../Running/running.html';
+}
+
+task();
+// async function sequence(){
+//   console.log(transformationStates)
+//   await sleep(2000);
+//   console.log('test')
+
+  
+  // transformationStates.forEach((state) => {
+  //   await sleep(2000);
+  //   state.frames.forEach((frame) => {
+  //     canvas.style.setProperty('--background', `${frame}`)
+  //     await sleep(2000);
+  // });
   
   
     // transformationStates[i].frames.forEach((frame) => {
@@ -129,10 +161,10 @@ async function sequence(){
     //  await sleep(2000);
 
     // });
-  })
-};
+  // })
+// }; 
 
-sequence();
+// sequence();
 
 // async function demo() {
 //   console.log('Taking a break...');

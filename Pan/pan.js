@@ -72,15 +72,15 @@ const transformationStates = [
 canvas.addEventListener("mousemove", (e) => {
   canvas.style.setProperty('--x', -e.offsetX + "px");
   clearTimeout(timeout);
-  timeout = setTimeout(function(){popUp(e.offsetX, e.offsetY)}, 250);
+  timeout = setTimeout(function(){popUp(e.offsetX, e.offsetY)}, 150);
 });
 
-canvas.addEventListener("click", (e) => {
-  // ctx.beginPath();
-  setTimeout(() => {ctx.clearRect(0,0,canvas.width,canvas.height)},100);
-  canvas.style.setProperty('--height', 515 + "px");
-  setTimeout(() => {canvas.style.setProperty('--height', 0 + "px")},1150);
-})
+// canvas.addEventListener("click", (e) => {
+//   // ctx.beginPath();
+//   setTimeout(() => {ctx.clearRect(0,0,canvas.width,canvas.height)},100);
+//   canvas.style.setProperty('--height', 515 + "px");
+//   setTimeout(() => {canvas.style.setProperty('--height', 0 + "px")},1150);
+// })
 
 //FUNCTIONS
 async function sleep(ms) {

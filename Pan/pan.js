@@ -12,59 +12,60 @@ moveImg.src = './assets/move.png'
 
 //animation
 let gameFrame = 0;
-// const backgroundLayer1 = new Image();
-// backgroundLayer1.src = './assets/1.png';
-// const backgroundLayer2 = new Image();
-// backgroundLayer2.src = './assets/2.png';
-// const backgroundLayer3 = new Image();
-// backgroundLayer3.src = './assets/3.png';
-// const backgroundLayer4 = new Image();
-// backgroundLayer4.src = './assets/4.png';
-// const backgroundLayer5 = new Image();
-// backgroundLayer5.src = './assets/5.png';
-// const backgroundLayer6 = new Image();
-// backgroundLayer6.src = './assets/6.png';
-
 const backgroundLayer1 = new Image();
-backgroundLayer1.src = './assets/Transformation/1.png';
+backgroundLayer1.src = './assets/Transformation/transoorm1.png';
 const backgroundLayer2 = new Image();
-backgroundLayer2.src = './assets/Transformation/2.png';
+backgroundLayer2.src = './assets/Transformation/transform2.png';
 const backgroundLayer3 = new Image();
-backgroundLayer3.src = './assets/Transformation/3.png';
+backgroundLayer3.src = './assets/Transformation/transform3.png';
 const backgroundLayer4 = new Image();
-backgroundLayer4.src = './assets/Transformation/4.png';
+backgroundLayer4.src = './assets/Transformation/transform4.png';
 const backgroundLayer5 = new Image();
-backgroundLayer5.src = './assets/Transformation/5.png';
+backgroundLayer5.src = './assets/Transformation/transform5.png';
 const backgroundLayer6 = new Image();
-backgroundLayer6.src = './assets/Transformation/6.png';
+backgroundLayer6.src = './assets/Transformation/transform6.png';
 const backgroundLayer7 = new Image();
-backgroundLayer7.src = './assets/Transformation/7.png';
+backgroundLayer7.src = './assets/Transformation/transform7.png';
 const backgroundLayer8 = new Image();
-backgroundLayer8.src = './assets/Transformation/8.png';
+backgroundLayer8.src = './assets/Transformation/transform8.png';
 const backgroundLayer9 = new Image();
-backgroundLayer9.src = './assets/Transformation/9.png';
+backgroundLayer9.src = './assets/Transformation/transform9.png';
 const backgroundLayer10 = new Image();
-backgroundLayer10.src = './assets/Transformation/10.png';
+backgroundLayer10.src = './assets/Transformation/transform10.png';
 const backgroundLayer11 = new Image();
-backgroundLayer11.src = './assets/Transformation/11.png';
+backgroundLayer11.src = './assets/Transformation/transform11.png';
 const backgroundLayer12 = new Image();
-backgroundLayer12.src = './assets/Transformation/12.png';
+backgroundLayer12.src = './assets/Transformation/transform12.png';
 const backgroundLayer13 = new Image();
-backgroundLayer13.src = './assets/Transformation/13.png';
+backgroundLayer13.src = './assets/Transformation/transform13.png';
 const backgroundLayer14 = new Image();
-backgroundLayer14.src = './assets/Transformation/14.png';
+backgroundLayer14.src = './assets/Transformation/transform14.png';
+const backgroundLayer15 = new Image();
+backgroundLayer15.src = './assets/Transformation/transform15.png';
+const backgroundLayer16 = new Image();
+backgroundLayer16.src = './assets/Transformation/transform16.png';
+const backgroundLayer17 = new Image();
+backgroundLayer17.src = './assets/Transformation/transform17.png';
+const backgroundLayer18 = new Image();
+backgroundLayer18.src = './assets/Transformation/transform18.png';
 
 const transformationStates = [
     {
         name:'first',
-        frames: ['url(./assets/Transformation/1.png)','url(./assets/Transformation/2.png)','url(./assets/Transformation/3.png)','url(./assets/Transformation/4.png)','url(./assets/Transformation/5.png)','url(./assets/Transformation/6.png)','url(./assets/Transformation/7.png)'],
+        frames: ['url(./assets/Transformation/transform1.png)','url(./assets/Transformation/transform2.png)','url(./assets/Transformation/transform3.png)','url(./assets/Transformation/transform4.png)','url(./assets/Transformation/transform5.png)','url(./assets/Transformation/transform6.png)','url(./assets/Transformation/transform7.png)','url(./assets/Transformation/transform8.png)','url(./assets/Transformation/transform9.png)',],
         // frames: ['url(./assets/1.png)','url(./assets/2.png)','url(./assets/3.png)'],
     },
     {
         name:'second',
-        frames: ['url(./assets/Transformation/8.png)','url(./assets/Transformation/9.png)','url(./assets/Transformation/10.png)','url(./assets/Transformation/6.png)','url(./assets/Transformation/11.png)','url(./assets/Transformation/12.png)','url(./assets/Transformation/13.png)','url(./assets/Transformation/14.png)'],
+        frames: ['url(./assets/Transformation/transform10.png)','url(./assets/Transformation/transform11.png)','url(./assets/Transformation/transform12.png)','url(./assets/Transformation/transform13.png)','url(./assets/Transformation/transform14.png)','url(./assets/Transformation/transform15.png)','url(./assets/Transformation/transform16.png)','url(./assets/Transformation/transform17.png)'],
         // frames: ['url(./assets/4.png)','url(./assets/5.png)','url(./assets/6.png)'],
-    }
+    },
+  //   {
+  //     name:'third',
+  //     frames: ['url(./assets/Transformation/transform13.png)','url(./assets/Transformation/transform14.png)','url(./assets/Transformation/transform15.png)','url(./assets/Transformation/transform16.png)','url(./assets/Transformation/transform17.png)','url(./assets/Transformation/transform18.png)'],
+  //     // frames: ['url(./assets/4.png)','url(./assets/5.png)','url(./assets/6.png)'],
+  // }
+
 ];
 
 //EVENT LISTENERS
@@ -91,11 +92,11 @@ const task = async () => {
     // console.log(state.frames)
     for (const frame of state.frames) {
       canvas.style.setProperty('--background', `${frame}`)
-      await sleep(250);
+      await sleep(200);
     }
     setTimeout(() => {ctx.clearRect(0,0,canvas.width,canvas.height)},100);
     canvas.style.setProperty('--height', 515 + "px");
-    setTimeout(() => {canvas.style.setProperty('--height', 0 + "px")},1150);
+    setTimeout(() => {canvas.style.setProperty('--height', 0 + "px")},800);
     await sleep(250);
 
     // transformationStates.forEach((state) => {
@@ -105,9 +106,11 @@ const task = async () => {
   //     await sleep(2000);
   // });
   }
-  await sleep(550);
+  ctx.clearRect(0,0,canvas.width,canvas.height)
+  moveImg.src = ''
+  await sleep(500);
   canvas.style.setProperty('--background', 'url(./assets/finalMove.png')
-  await sleep(2500);
+  await sleep(2000);
   window.location.href = '../Running/running.html';
 }
 

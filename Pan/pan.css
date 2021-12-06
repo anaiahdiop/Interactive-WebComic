@@ -8,7 +8,7 @@
     background-size: 900px var(--height), 900px var(--height), 1800px 500px; /* sets a bigger size background than the viewport*/ 
     width: 900px; height: 500px; /* this sets the size of the viewing frame*/
     border: 1px solid white;
-    transition: background-size .35s, background-size .35s,background-position .15s; /* any time we change this property we want to do it with a transition of _ secs*/
+    transition: background-size .5s, background-size .5s,background-position .15s; /* any time we change this property we want to do it with a transition of _ secs*/
     margin-top: 5%;
 }
 

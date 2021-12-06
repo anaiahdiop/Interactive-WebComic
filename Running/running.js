@@ -48,10 +48,6 @@ backgroundLayer4.src = './Parallax/layer4.png';
 const backgroundLayer5 = new Image();
 backgroundLayer5.src = './Parallax/layer5.png';
 
-
-const showSpeed = document.getElementById('showspeed');
-showSpeed.innerHTML = backgroundSpeed;
-
     class Layer{
         constructor(image,speedMod){
             this.x = 0;

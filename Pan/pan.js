@@ -92,11 +92,11 @@ const task = async () => {
     // console.log(state.frames)
     for (const frame of state.frames) {
       canvas.style.setProperty('--background', `${frame}`)
-      await sleep(200);
+      await sleep(400);
     }
     setTimeout(() => {ctx.clearRect(0,0,canvas.width,canvas.height)},100);
     canvas.style.setProperty('--height', 515 + "px");
-    setTimeout(() => {canvas.style.setProperty('--height', 0 + "px")},800);
+    setTimeout(() => {canvas.style.setProperty('--height', 0 + "px")},500);
     await sleep(250);
 
     // transformationStates.forEach((state) => {

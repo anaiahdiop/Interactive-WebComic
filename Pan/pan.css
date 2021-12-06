@@ -10,7 +10,6 @@
     border: 1px solid white;
     transition: background-size 1s, background-size 1s,background-position .15s; /* any time we change this property we want to do it with a transition of _ secs*/
     margin-top: 5%;
-    
 }
 
                                                       

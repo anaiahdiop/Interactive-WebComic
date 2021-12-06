@@ -4,15 +4,18 @@ let backgroundSpeed = 10;
 canvas.width = 600;
 canvas.height = 600;
 
-var runSpriteSheetUrl = './assets/firstRun.png'
+var runSpriteSheetUrl = './assets/runSheet.png'
 var runSprite = new Image();
 runSprite.src = runSpriteSheetUrl;
 
 let gameFrame = 0;
-const spriteAnimations = [];
 const runAnimationStates = [
     {
         name:'run',
+        frames:6,
+    },
+    {
+        name:'faster',
         frames:6,
     }
 ];
@@ -20,8 +23,8 @@ const runAnimationStates = [
 canvas.addEventListener("mousedown", function() {
     backgroundSpeed = 15;
     showSpeed.innerHTML = backgroundSpeed;
-    spriteLayer.spriteState = 'run';
-    spriteLayer.staggerFrames = 8
+    spriteLayer.spriteState = 'faster';
+    // spriteLayer.staggerFrames = 8
 })
 
 
@@ -101,9 +104,11 @@ showSpeed.innerHTML = backgroundSpeed;
                 }
                 this.spriteAnimations[state.name] = frames;
             })
+            // console.log(spriteAnimations)
         }
         
         update(){ //animate
+            if(!this) return; //stops findCoordinates: if theres no object dont make a call
             this.findCoordinates()
             let position = Math.floor(gameFrame/this.staggerFrames) % this.spriteAnimations[this.spriteState].loc.length;
             let frameX = this.width* position;
@@ -121,7 +126,7 @@ showSpeed.innerHTML = backgroundSpeed;
     const layer3 = new Layer(backgroundLayer3, 0.6)
     const layer4 = new Layer(backgroundLayer4, 0.5)
     const layer5 = new Layer(backgroundLayer5, 0.3)
-    const spriteLayer = new Sprite(runSprite, 0, 200, 200, runAnimationStates, "run", 10)
+    const spriteLayer = new Sprite(runSprite, 0, 200, 200, runAnimationStates, 'run', 10)
 
     const layers = [layer5,layer4,layer3,
     layer2,spriteLayer,layer1];
@@ -137,8 +142,7 @@ showSpeed.innerHTML = backgroundSpeed;
         requestAnimationFrame(parallax);
     };
 
-    parallax();
-
-
-
-
+    window.addEventListener('load', (event) => {
+        parallax();
+      });
+  

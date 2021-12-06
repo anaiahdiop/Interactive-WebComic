@@ -1,46 +1,4 @@
-//CLASSES
-class Sprite{
-  constructor(image,speedMod,width,height,spriteStates, spriteState, staggerFrames){
-      this.image = image;
-      this.speedMod = speedMod
-      this.width = width;
-      this.height = height;
-      this.spriteAnimations = [];
-      this.staggerFrames = staggerFrames;
-      this.spriteStates = spriteStates;
-      this.spriteState = spriteState;
-
-  }
-
-  findCoordinates(){ // this is for regular sprite sheets
-      this.spriteStates.forEach((state,index)=>{
-          let frames = {
-              loc: []
-          }
-          for(let j = 0; j < state.frames; j++ ){
-              let positionX = j * this.width;
-              let positionY = index * this.height
-              frames.loc.push({x: positionX, y: positionY})
-          }
-          this.spriteAnimations[state.name] = frames;
-      })
-  }
-  
-  update(){ //animate
-      this.findCoordinates()
-      let position = Math.floor(gameFrame/this.staggerFrames) % this.spriteAnimations[this.spriteState].loc.length;
-      let frameX = this.width* position;
-      let frameY = this.spriteAnimations[this.spriteState].loc[position].y;
-      
-      ctx.drawImage(this.image, frameX, frameY, this.width, this.height,200,200,this.width,this.height);
-      // ctx.drawImage(this.image, frameX, frameY, this.width, this.height,0,0,canvas.width,canvas.height);
-      gameFrame++
-      requestAnimationFrame(this.update);
-  }
-};
-
-
-//VARIABLES
+//STARTER VARIABLES
 var canvas = document.querySelector('canvas');
 var ctx = canvas.getContext('2d');
 canvas.width = 900;
@@ -54,41 +12,60 @@ moveImg.src = './assets/move.png'
 
 //animation
 let gameFrame = 0;
-const backgroundLayer1 = new Image();
-backgroundLayer1.src = './assets/1.png';
-const backgroundLayer2 = new Image();
-backgroundLayer2.src = './assets/2.png';
-const backgroundLayer3 = new Image();
-backgroundLayer3.src = './assets/3.png';
-const backgroundLayer4 = new Image();
-backgroundLayer4.src = './assets/4.png';
-const backgroundLayer5 = new Image();
-backgroundLayer5.src = './assets/5.png';
-const backgroundLayer6 = new Image();
-backgroundLayer6.src = './assets/6.png';
+// const backgroundLayer1 = new Image();
+// backgroundLayer1.src = './assets/1.png';
+// const backgroundLayer2 = new Image();
+// backgroundLayer2.src = './assets/2.png';
+// const backgroundLayer3 = new Image();
+// backgroundLayer3.src = './assets/3.png';
+// const backgroundLayer4 = new Image();
+// backgroundLayer4.src = './assets/4.png';
+// const backgroundLayer5 = new Image();
+// backgroundLayer5.src = './assets/5.png';
+// const backgroundLayer6 = new Image();
+// backgroundLayer6.src = './assets/6.png';
 
-const spriteAnimations = [];
+const backgroundLayer1 = new Image();
+backgroundLayer1.src = './assets/Transformation/1.png';
+const backgroundLayer2 = new Image();
+backgroundLayer2.src = './assets/Transformation/2.png';
+const backgroundLayer3 = new Image();
+backgroundLayer3.src = './assets/Transformation/3.png';
+const backgroundLayer4 = new Image();
+backgroundLayer4.src = './assets/Transformation/4.png';
+const backgroundLayer5 = new Image();
+backgroundLayer5.src = './assets/Transformation/5.png';
+const backgroundLayer6 = new Image();
+backgroundLayer6.src = './assets/Transformation/6.png';
+const backgroundLayer7 = new Image();
+backgroundLayer7.src = './assets/Transformation/7.png';
+const backgroundLayer8 = new Image();
+backgroundLayer8.src = './assets/Transformation/8.png';
+const backgroundLayer9 = new Image();
+backgroundLayer9.src = './assets/Transformation/9.png';
+const backgroundLayer10 = new Image();
+backgroundLayer10.src = './assets/Transformation/10.png';
+const backgroundLayer11 = new Image();
+backgroundLayer11.src = './assets/Transformation/11.png';
+const backgroundLayer12 = new Image();
+backgroundLayer12.src = './assets/Transformation/12.png';
+const backgroundLayer13 = new Image();
+backgroundLayer13.src = './assets/Transformation/13.png';
+const backgroundLayer14 = new Image();
+backgroundLayer14.src = './assets/Transformation/14.png';
+
 const transformationStates = [
     {
         name:'first',
-        frames: ['url(./assets/1.png)','url(./assets/2.png)','url(./assets/3.png)'],
+        frames: ['url(./assets/Transformation/1.png)','url(./assets/Transformation/2.png)','url(./assets/Transformation/3.png)','url(./assets/Transformation/4.png)','url(./assets/Transformation/5.png)','url(./assets/Transformation/6.png)','url(./assets/Transformation/7.png)'],
+        // frames: ['url(./assets/1.png)','url(./assets/2.png)','url(./assets/3.png)'],
     },
     {
         name:'second',
-        frames: ['url(./assets/4.png)','url(./assets/5.png)','url(./assets/6.png)'],
+        frames: ['url(./assets/Transformation/8.png)','url(./assets/Transformation/9.png)','url(./assets/Transformation/10.png)','url(./assets/Transformation/6.png)','url(./assets/Transformation/11.png)','url(./assets/Transformation/12.png)','url(./assets/Transformation/13.png)','url(./assets/Transformation/14.png)'],
+        // frames: ['url(./assets/4.png)','url(./assets/5.png)','url(./assets/6.png)'],
     }
 ];
-
-var SpriteSheetUrl = './assets/shadow_dog.png'
-var sprite = new Image();
-sprite.src = SpriteSheetUrl;
-const spriteLayer = new Sprite(sprite, 0, 300, 228, transformationStates, "run", 10)
-console.log(spriteLayer.findCoordinates())
-
-// const spriteLayer = new Sprite(sprite, 0, 575, 523, animationStates, "run", 10)
-
-
-
 
 //EVENT LISTENERS
 canvas.addEventListener("mousemove", (e) => {
@@ -109,23 +86,17 @@ async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// (async function() {
-//   const response = await doSomethingAsync();
-//   console.log(response)
-// })();
-
-const list = [1, 2, 3, 4]
 const task = async () => {
   for (const state of transformationStates) {
     // console.log(state.frames)
     for (const frame of state.frames) {
       canvas.style.setProperty('--background', `${frame}`)
-      await sleep(500);
+      await sleep(250);
     }
     setTimeout(() => {ctx.clearRect(0,0,canvas.width,canvas.height)},100);
     canvas.style.setProperty('--height', 515 + "px");
     setTimeout(() => {canvas.style.setProperty('--height', 0 + "px")},1150);
-    await sleep(1000);
+    await sleep(250);
 
     // transformationStates.forEach((state) => {
   //   await sleep(2000);
@@ -134,12 +105,35 @@ const task = async () => {
   //     await sleep(2000);
   // });
   }
+  await sleep(550);
   canvas.style.setProperty('--background', 'url(./assets/finalMove.png')
-  await sleep(1500);
+  await sleep(2500);
   window.location.href = '../Running/running.html';
 }
 
-task();
+window.addEventListener('load', (event) => {
+  task();
+});
+
+
+
+function popUp(x,y){
+  ctx.drawImage(moveImg, x, y, 100, 100);
+}
+
+// e.offsetX is the mouse coordinate for my mouse
+//(name of property , new value)
+
+
+
+// function 
+// go through the frames of my animation 
+//I set the current frame to my background image
+//when i get to last frame change animation state 
+
+
+//SEQUENCE NOTES
+
 // async function sequence(){
 //   console.log(transformationStates)
 //   await sleep(2000);
@@ -180,18 +174,3 @@ task();
 // }
 
 // demo();
-
-function popUp(x,y){
-  ctx.drawImage(moveImg, x, y, 100, 100);
-}
-
-// e.offsetX is the mouse coordinate for my mouse
-//(name of property , new value)
-
-
-
-// function 
-// go through the frames of my animation 
-//I set the current frame to my background image
-//when i get to last frame change animation state 
-

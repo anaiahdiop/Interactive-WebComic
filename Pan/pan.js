@@ -110,7 +110,7 @@ const task = async () => {
   moveImg.src = ''
   await sleep(500);
   canvas.style.setProperty('--background', 'url(./assets/finalMove.png')
-  await sleep(2000);
+  await sleep(1100);
   window.location.href = '../Running/running.html';
 }
 

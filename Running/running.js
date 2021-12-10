@@ -22,8 +22,7 @@ const runAnimationStates = [
 
 canvas.addEventListener("mousedown", function() {
     backgroundSpeed = 15;
-    showSpeed.innerHTML = backgroundSpeed;
-    spriteLayer.spriteState = 'faster';
+    spriteLayer.spriteState = "faster";
     // spriteLayer.staggerFrames = 8
 })
 
@@ -142,3 +141,4 @@ backgroundLayer5.src = './Parallax/layer5.png';
         parallax();
       });
   
+console.log(spriteLayer.spriteState)

@@ -107,9 +107,9 @@ const task = async () => {
   //     await sleep(2000);
   // });
   }
-  ctx.clearRect(0,0,canvas.width,canvas.height)
+  await sleep(1000);
+  ctx.clearRect(0,0,canvas.width,canvas.height);
   moveImg.src = ''
-  await sleep(500);
   canvas.style.setProperty('--background', 'url(./assets/finalMove.png')
   await sleep(1100);
   window.location.href = '../Running/running.html';

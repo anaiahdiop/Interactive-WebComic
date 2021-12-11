@@ -57,7 +57,7 @@ const transformationStates = [
     },
     {
         name:'second',
-        frames: ['url(./assets/Transformation/transform10.png)','url(./assets/Transformation/transform11.png)','url(./assets/Transformation/transform12.png)','url(./assets/Transformation/transform13.png)','url(./assets/Transformation/transform14.png)','url(./assets/Transformation/transform15.png)','url(./assets/Transformation/transform16.png)','url(./assets/Transformation/transform17.png)'],
+        frames: ['url(./assets/Transformation/transform10.png)','url(./assets/Transformation/transform11.png)','url(./assets/Transformation/transform12.png)','url(./assets/Transformation/transform13.png)','url(./assets/Transformation/transform14.png)','url(./assets/Transformation/transform14.png)','url(./assets/Transformation/transform15.png)','url(./assets/Transformation/transform16.png)','url(./assets/Transformation/transform17.png)'],
         // frames: ['url(./assets/4.png)','url(./assets/5.png)','url(./assets/6.png)'],
     },
   //   {
@@ -71,6 +71,7 @@ const transformationStates = [
 //EVENT LISTENERS
 canvas.addEventListener("mousemove", (e) => {
   canvas.style.setProperty('--x', -e.offsetX + "px");
+  canvas.style.setProperty('--y', -e.offsetY + "px");
   clearTimeout(timeout);
   timeout = setTimeout(function(){popUp(e.offsetX, e.offsetY)}, 150);
 });
@@ -97,6 +98,7 @@ const task = async () => {
     setTimeout(() => {ctx.clearRect(0,0,canvas.width,canvas.height)},100);
     canvas.style.setProperty('--height', 515 + "px");
     setTimeout(() => {canvas.style.setProperty('--height', 0 + "px")},500);
+    popUps = [];
     moveImg.src = './assets/move.png';
     await sleep(250);
 
@@ -107,7 +109,8 @@ const task = async () => {
   //     await sleep(2000);
   // });
   }
-  await sleep(1000);
+  popUps = [];
+  await sleep(1500);
   ctx.clearRect(0,0,canvas.width,canvas.height);
   moveImg.src = ''
   canvas.style.setProperty('--background', 'url(./assets/finalMove.png')
@@ -119,10 +122,47 @@ window.addEventListener('load', (event) => {
   task();
 });
 
+function distance(x1,y1,x2,y2){
+  let a = x1 - x2; 
+  let b = y1 - y2;
+  let c = Math.sqrt( a*a + b*b );
+  return c;
+} 
 
+console.log(distance(5,6,7,1))
+var popUps = [];
 
 function popUp(x,y){
-  ctx.drawImage(moveImg, x, y, 100, 100);
+  var pop = {
+   x: x,
+   y: y,
+   r: 50, 
+   img: moveImg
+  }
+
+  let overlap = false;
+  if(popUps.length === 0){
+    popUps.push(pop);
+  }
+  for(let i=0; i<popUps.length;i++){
+      let d = distance(pop.x,pop.y,popUps[i].x,popUps[i].y)
+      // console.log(`this is the distance ${d}  this is the addition  ${pop.r + popUps[i].r}`)
+      if(d < pop.r + popUps[i].r){
+        overlap = true;
+        break;
+      //   //they are overlapping
+      }
+      if(!overlap){
+        popUps.push(pop);
+      }
+  }
+
+  // popUps.push(pop)
+  ctx.drawImage(popUps[popUps.length - 1].img, popUps[popUps.length - 1].x, popUps[popUps.length - 1].y, 100, 100);
+
+  //every pop up is added to an array
+  //I want to draw each new element in array - show the last thing in array 
+  //dont add pop up to array if it overlaps 
 }
 
 // e.offsetX is the mouse coordinate for my mouse

@@ -1,5 +1,6 @@
 .frame {
      --x: -400px;  /* double hyphen is a css variable*/
+     --y: 250;
      --height: 0px;
      --background: url(./assets/Transformation/transform4.png);
     background-image: url(./assets/blinkTop.png), url(./assets/blinkBottom.png), var(--background);
@@ -12,16 +13,15 @@
     margin-top: 5%;
 }
 
-                                                      
+  
+canvas:hover{
+    cursor: url(./assets/leftRight.png),auto;
+}
 
 *{
     box-sizing: border-box;
   }
   
-  
-  #frame {
-      width: 100%; height: auto;
-  }
   
   
     body{

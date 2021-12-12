@@ -1,3 +1,13 @@
+/* .cursor{
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%,-50%);
+} */
+
 .frame {
      --x: -400px;  /* double hyphen is a css variable*/
      --y: 250;
@@ -16,6 +26,7 @@
   
 canvas:hover{
     cursor: url(./assets/leftRight.png),auto;
+    /* cursor: none; */
 }
 
 *{

@@ -1,4 +1,5 @@
 //STARTER VARIABLES
+let mouseCursor = document.querySelector(".cursor")
 var canvas = document.querySelector('canvas');
 var ctx = canvas.getContext('2d');
 canvas.width = 900;
@@ -7,7 +8,8 @@ var timeout;
 
 //pop up 
 const moveImg = new Image();
-moveImg.src = ''
+// moveImg.src = ''
+moveImg.src = './assets/move.png';
 
 
 //animation
@@ -70,6 +72,8 @@ const transformationStates = [
 
 //EVENT LISTENERS
 canvas.addEventListener("mousemove", (e) => {
+  // mouseCursor.style.top = e.pageY + "px"
+  // mouseCursor.style.left = e.pageX + "px"
   canvas.style.setProperty('--x', -e.offsetX + "px");
   canvas.style.setProperty('--y', -e.offsetY + "px");
   clearTimeout(timeout);
@@ -94,6 +98,7 @@ const task = async () => {
     for (const frame of state.frames) {
       canvas.style.setProperty('--background', `${frame}`)
       await sleep(400);
+      // await sleep(5000);
     }
     setTimeout(() => {ctx.clearRect(0,0,canvas.width,canvas.height)},100);
     canvas.style.setProperty('--height', 515 + "px");
@@ -144,7 +149,9 @@ function popUp(x,y){
   if(popUps.length === 0){
     popUps.push(pop);
   }
+  console.log("this is pop " + pop.x,pop.y);
   for(let i=0; i<popUps.length;i++){
+      console.log(popUps[i].x,popUps[i].y);
       let d = distance(pop.x,pop.y,popUps[i].x,popUps[i].y)
       // console.log(`this is the distance ${d}  this is the addition  ${pop.r + popUps[i].r}`)
       if(d < pop.r + popUps[i].r){
@@ -156,65 +163,9 @@ function popUp(x,y){
         popUps.push(pop);
       }
   }
-
+  console.log(popUps)
   // popUps.push(pop)
   ctx.drawImage(popUps[popUps.length - 1].img, popUps[popUps.length - 1].x, popUps[popUps.length - 1].y, 100, 100);
 
-  //every pop up is added to an array
-  //I want to draw each new element in array - show the last thing in array 
-  //dont add pop up to array if it overlaps 
 }
 
-// e.offsetX is the mouse coordinate for my mouse
-//(name of property , new value)
-
-
-
-// function 
-// go through the frames of my animation 
-//I set the current frame to my background image
-//when i get to last frame change animation state 
-
-
-//SEQUENCE NOTES
-
-// async function sequence(){
-//   console.log(transformationStates)
-//   await sleep(2000);
-//   console.log('test')
-
-  
-  // transformationStates.forEach((state) => {
-  //   await sleep(2000);
-  //   state.frames.forEach((frame) => {
-  //     canvas.style.setProperty('--background', `${frame}`)
-  //     await sleep(2000);
-  // });
-  
-  
-    // transformationStates[i].frames.forEach((frame) => {
-    //   console.log(frame)
-    //   // setTimeout(() => {canvas.style.setProperty('--background', `${frame}`)},1150);
-    //  canvas.style.setProperty('--background', `${frame}`)
-    //  await sleep(2000);
-
-    // });
-  // })
-// }; 
-
-// sequence();
-
-// async function demo() {
-//   console.log('Taking a break...');
-//   await sleep(2000);
-//   console.log('Two seconds later, showing sleep in a loop...');
-
-//   // Sleep in loop
-//   for (let i = 0; i < 5; i++) {
-//     if (i === 3)
-//       await sleep(2000);
-//     console.log(i);
-//   }
-// }
-
-// demo();

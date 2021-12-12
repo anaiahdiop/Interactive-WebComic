@@ -121,7 +121,7 @@ backgroundLayer5.src = './Parallax/layer5.png';
     const layer3 = new Layer(backgroundLayer3, 0.6)
     const layer4 = new Layer(backgroundLayer4, 0.5)
     const layer5 = new Layer(backgroundLayer5, 0.3)
-    const spriteLayer = new Sprite(runSprite, 0, 200, 200, runAnimationStates, 'run', 10)
+    const spriteLayer = new Sprite(runSprite, 0, 200, 200, runAnimationStates, 'run', 11)
 
     const layers = [layer5,layer4,layer3,
     layer2,spriteLayer,layer1];

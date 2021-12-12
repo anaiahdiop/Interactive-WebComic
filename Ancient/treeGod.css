@@ -4,7 +4,8 @@
     color: white;
 }
 .pic{
-    width: 75%;
+    margin-top: 25%;
+    width: 65%;
     height: 100%;
     display: block;
     margin-left: auto;
@@ -13,8 +14,10 @@
 
 #eyes{
     border: 1px solid white;
-    margin-top: 25%;
-    margin-bottom: 35%;
+    margin-top: 20%;
+    position:absolute;
+    transform: translate(-50%,-50%);
+    /* margin-bottom: 35%; */
 }
                                                      
 *{

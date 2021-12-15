@@ -1,11 +1,14 @@
-var canvas = document.querySelector('canvas');
-var ctx = canvas.getContext('2d');
+const canvas = document.querySelector('canvas');
+const staticPanel = document.querySelector('.pic');
+const ctx = canvas.getContext('2d');
 let backgroundSpeed = 10; 
 canvas.width = 600;
 canvas.height = 600;
 
-var runSpriteSheetUrl = './assets/runSheet.png'
-var runSprite = new Image();
+const staticImage = new Image()
+staticImage.src = './assets/backaway.png'
+const runSpriteSheetUrl = './assets/runSheet.png'
+const runSprite = new Image();
 runSprite.src = runSpriteSheetUrl;
 
 let gameFrame = 0;
@@ -138,6 +141,7 @@ backgroundLayer5.src = './Parallax/layer5.png';
     };
 
     window.addEventListener('load', (event) => {
+        staticPanel.src = staticImage.src;
         parallax();
       });
   

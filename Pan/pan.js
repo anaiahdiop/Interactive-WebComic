@@ -1,7 +1,7 @@
 //STARTER VARIABLES
 let mouseCursor = document.querySelector(".cursor")
-var canvas = document.querySelector('canvas');
-var ctx = canvas.getContext('2d');
+let canvas = document.querySelector('canvas');
+let ctx = canvas.getContext('2d');
 canvas.width = 900;
 canvas.height = 500;
 var timeout;
@@ -13,7 +13,6 @@ moveImg.src = '';
 
 
 //animation
-let gameFrame = 0;
 const backgroundLayer1 = new Image();
 backgroundLayer1.src = './assets/Transformation/transform1.png';
 const backgroundLayer2 = new Image();

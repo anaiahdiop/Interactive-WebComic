@@ -4,13 +4,17 @@
     color: white;
 }
 .pic{
-    margin-top: 25%;
     width: 65%;
     height: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
+/* 
+#leaves{
+    margin-top: 10%;
+} */
+
 
 #eyes{
     border: 1px solid white;

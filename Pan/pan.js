@@ -9,7 +9,7 @@ var timeout;
 //pop up 
 const moveImg = new Image();
 // moveImg.src = ''
-moveImg.src = './assets/move.png';
+moveImg.src = '';
 
 
 //animation
@@ -92,7 +92,7 @@ async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const task = async () => {
+const sequence = async () => {
   for (const state of transformationStates) {
     // console.log(state.frames)
     for (const frame of state.frames) {
@@ -124,7 +124,7 @@ const task = async () => {
 }
 
 window.addEventListener('load', (event) => {
-  task();
+  sequence();
 });
 
 function distance(x1,y1,x2,y2){
@@ -135,7 +135,7 @@ function distance(x1,y1,x2,y2){
 } 
 
 console.log(distance(5,6,7,1))
-var popUps = [];
+let popUps = [];
 
 function popUp(x,y){
   var pop = {

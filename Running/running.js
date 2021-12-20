@@ -83,8 +83,8 @@ canvas.addEventListener("mousedown", function() {
     innerCursor.classList.add("held");
     outerCursor.classList.add("held");
     mouseText.classList.add("held");
-    setTimeout(function(){dialogue.image = text2;}, 3000);
-    setTimeout(function(){dialogue.image = text3;}, 8000);
+    setTimeout(function(){dialogue.image = text2;}, 2500);
+    setTimeout(function(){dialogue.image = text3;}, 6000);
     //text array changes to multiple
 })
 

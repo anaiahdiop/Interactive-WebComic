@@ -1,8 +1,9 @@
 let innerCursor = document.querySelector('.inner-cursor');
 let outerCursor = document.querySelector('.outer-cursor');
 const nextButton = document.querySelector(".button")
+const wrap = document.querySelector(".wrap");
 nextButton.style.visibility = 'hidden';
-const background = document.querySelector(".pic")
+const background = document.querySelector(".pic");
 
 const faceDown = new Image();
 faceDown.src = "./assets/faceDownPic.jpg"
@@ -32,17 +33,17 @@ document.addEventListener("mousemove", (e) => {
   outerCursor.style.left = `${mouseX}px`;
   outerCursor.style.top = `${mouseY}px`;
 
-  // canvas.addEventListener('mouseover', ()=> {
-  //     innerCursor.classList.add("grow");
-  //     icon.style.visibility = "visible";
-  //     outerCursor.style.borderColor = "black";
+  wrap.addEventListener('mouseover', ()=> {
+    innerCursor.classList.add("grow");
+    outerCursor.classList.add("grow");
+    // outerCursor.style.borderColor = "white";
 
-  // })
-  // canvas.addEventListener('mouseleave', ()=> {
-  //     innerCursor.classList.remove("grow");
-  //     icon.style.visibility = "hidden";
-  //     outerCursor.style.borderColor = "white";
-  // })
+})
+  wrap.addEventListener('mouseleave', ()=> {
+    innerCursor.classList.remove("grow");
+    outerCursor.classList.remove("grow");
+    // outerCursor.style.borderColor = "white";
+})
 
 });
 

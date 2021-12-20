@@ -96,18 +96,10 @@
     height:10px;
     transform: translate(-50%,-50%);
     background-color: white;
-    /* mix-blend-mode: difference; */
     border-radius: 50%;
     pointer-events: none;
     transition: width 0.5s, height 0.5s; 
 
-}
-
-.inner-cursor.grow{
-    background-color: white;
-    width: 50px;
-    height: 50px;
-    transition: width 0.5s, height 0.5s;
 }
 
 .outer-cursor{
@@ -118,11 +110,28 @@
     height:50px;
     transform: translate(-50%,-50%);
     border: 2px solid white;
-    /* mix-blend-mode: difference; */
     border-radius: 50%;
     pointer-events: none;
 
 }
+.outer-cursor.grow{
+    width: 35px;
+    height:35px;
+    transition: width 0.5s, height 0.5s;
+    transform: translate(-50%,-50%);
+    border: 2px solid white;
+
+    border-radius: 50%;
+    pointer-events: none;
+} 
+
+.inner-cursor.grow{
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    transition: width 0.5s, height 0.5s;
+}
+
 
    .button{
     margin-top: 5%;

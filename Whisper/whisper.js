@@ -1,7 +1,7 @@
 let innerCursor = document.querySelector('.inner-cursor');
 let outerCursor = document.querySelector('.outer-cursor');
 const nextButton = document.querySelector(".button")
-const wrap = document.querySelector(".wrap");
+const wrap = document.getElementsByClassName("wrap");
 nextButton.style.visibility = 'hidden';
 const background = document.querySelector(".pic");
 
@@ -10,7 +10,6 @@ faceDown.src = "./assets/faceDownPic.jpg"
 
 const faceUp = new Image();
 faceUp.src = "./assets/faceUpPic.jpg"
-
 
 window.addEventListener('load', (event) => {
     nextButton.style.visibility = 'visible';
@@ -33,17 +32,23 @@ document.addEventListener("mousemove", (e) => {
   outerCursor.style.left = `${mouseX}px`;
   outerCursor.style.top = `${mouseY}px`;
 
-  wrap.addEventListener('mouseover', ()=> {
-    innerCursor.classList.add("grow");
-    outerCursor.classList.add("grow");
-    // outerCursor.style.borderColor = "white";
+  for (var i = 0; i < wrap.length; i++) {
+    wrap[i].addEventListener('mouseover', ()=> {
+      innerCursor.classList.add("grow");
+      outerCursor.classList.add("grow");
+      // outerCursor.style.borderColor = "white";
+  
+  })
 
-})
-  wrap.addEventListener('mouseleave', ()=> {
+  wrap[i].addEventListener('mouseleave', ()=> {
     innerCursor.classList.remove("grow");
     outerCursor.classList.remove("grow");
     // outerCursor.style.borderColor = "white";
-})
+  })
+
+}
+  
+ 
 
 });
 

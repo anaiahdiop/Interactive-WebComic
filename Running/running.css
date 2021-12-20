@@ -1,6 +1,11 @@
+*{
+    cursor: none;
+}
+
 
 .pic{
     margin-top: 10%;
+    border: 2px solid white;
 }
 
 .frame{
@@ -30,7 +35,75 @@ canvas {
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
-    border: 1px solid white;
+    border: 2px solid white;
+}
+
+.mouse-text{
+    visibility: hidden;
+    text-align: center;
+    padding: 15px 0;
+    color: black;
+}
+.inner-cursor{
+    top:5%;
+    left: 50%;
+    position: fixed;
+    width: 15px;
+    height:15px;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    /* mix-blend-mode: difference; */
+    border-radius: 50%;
+    pointer-events: none;
+    transition: width 0.5s, height 0.5s; 
+
+}
+
+.inner-cursor.grow{
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    transition: width 0.5s, height 0.5s;
+}
+
+.outer-cursor{
+    top:5%;
+    left: 50%;
+    position: fixed;
+    width: 50px;
+    height:50px;
+    transform: translate(-50%,-50%);
+    border: 2px solid white;
+    /* mix-blend-mode: difference; */
+    border-radius: 50%;
+    pointer-events: none;
+
+}
+
+.outer-cursor.held{
+    width: 35px;
+    height:35px;
+    transition: width 0.5s, height 0.5s;
+    transform: translate(-50%,-50%);
+    border: 2px solid white;
+    /* mix-blend-mode: difference; */
+    border-radius: 50%;
+    pointer-events: none;
+} 
+
+.inner-cursor.held{
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    transition: width 0.5s, height 0.5s;
+}
+
+.mouse-text.held{
+    visibility: visible;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    padding: 12px 0;
 }
 
 .button{

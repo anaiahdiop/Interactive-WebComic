@@ -1,5 +1,7 @@
 //STARTER VARIABLES
-let mouseCursor = document.querySelector(".cursor")
+let innerCursor = document.querySelector('.inner-cursor');
+let outerCursor = document.querySelector('.outer-cursor');
+let icon = document.querySelector('.icon');
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 canvas.width = 900;
@@ -12,7 +14,9 @@ const moveImg = new Image();
 moveImg.src = '';
 
 
-//animation
+//IMAGES
+const indicator = new Image()
+indicator.src = './assets/indicator.png'
 const backgroundLayer1 = new Image();
 backgroundLayer1.src = './assets/Transformation/transform1.png';
 const backgroundLayer2 = new Image();
@@ -70,6 +74,34 @@ const transformationStates = [
 ];
 
 //EVENT LISTENERS
+window.addEventListener('load', (event) => {
+  sequence();
+  ctx.drawImage(indicator, 0, 0, 75, 75)
+});
+
+document.addEventListener("mousemove", (e) => {
+  let mouseX = e.clientX;
+  let mouseY = e.clientY;
+
+  innerCursor.style.left = `${mouseX}px`;
+  innerCursor.style.top = `${mouseY}px`;
+  outerCursor.style.left = `${mouseX}px`;
+  outerCursor.style.top = `${mouseY}px`;
+
+  canvas.addEventListener('mouseover', ()=> {
+      innerCursor.classList.add("grow");
+      icon.style.visibility = "visible";
+      outerCursor.style.borderColor = "black";
+
+  })
+  canvas.addEventListener('mouseleave', ()=> {
+      innerCursor.classList.remove("grow");
+      icon.style.visibility = "hidden";
+      outerCursor.style.borderColor = "white";
+  })
+
+});
+
 canvas.addEventListener("mousemove", (e) => {
   // mouseCursor.style.top = e.pageY + "px"
   // mouseCursor.style.left = e.pageX + "px"
@@ -115,16 +147,12 @@ const sequence = async () => {
   }
   popUps = [];
   await sleep(1500);
-  ctx.clearRect(0,0,canvas.width,canvas.height);
   moveImg.src = ''
+  ctx.clearRect(0,0,canvas.width,canvas.height);
   canvas.style.setProperty('--background', 'url(./assets/finalMove.png')
   await sleep(1100);
   window.location.href = '../Running/running.html';
 }
-
-window.addEventListener('load', (event) => {
-  sequence();
-});
 
 function distance(x1,y1,x2,y2){
   let a = x1 - x2; 

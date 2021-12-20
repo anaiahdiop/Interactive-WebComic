@@ -1,3 +1,5 @@
+let innerCursor = document.querySelector('.inner-cursor');
+let outerCursor = document.querySelector('.outer-cursor');
 const tree = document.getElementById("tree");
 const leaves= document.getElementById("leaves");
 const eyes = document.getElementById("eyes");
@@ -21,6 +23,16 @@ window.addEventListener('load', (event) => {
     eyes.src = eyesPic.src;
   });
 
+  document.addEventListener("mousemove", (e) => {
+    let mouseX = e.clientX;
+    let mouseY = e.clientY;
+  
+    innerCursor.style.left = `${mouseX}px`;
+    innerCursor.style.top = `${mouseY}px`;
+    outerCursor.style.left = `${mouseX}px`;
+    outerCursor.style.top = `${mouseY}px`;
+  
+  });
 
 // var _img = document.getElementById('id1');
 // var newImg = new Image;

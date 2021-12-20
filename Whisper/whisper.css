@@ -1,4 +1,8 @@
-.container{
+*{
+    box-sizing: border-box;
+     cursor:none;
+  }
+  .container{
     width:100%;
     margin-top: 25px;
     position: relative;
@@ -7,11 +11,21 @@
     
 }
 
+.icon{
+    width:7%;
+    height:2%;
+    position: absolute;
+    left: 25%;
+    margin-top: 5%;
+
+}
 .pic{
+    margin-top: 5%;
     width: 50%;
     height: 100%;
     
 }
+
 .text{
     height: 75%;
 }
@@ -53,13 +67,6 @@
     transform: translate(-50%, -50%);
 }
 
-/* .wrap{
-    width:100%;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */
-
 .wrap{
     opacity: 0;
     transition: opacity .5s;
@@ -70,13 +77,6 @@
     opacity: 1;
 }
 
-*{
-   box-sizing: border-box;
-    /* cursor:none; */
- }
- 
-
- 
    body{
        /* background-color: #333; */
        background-color:black;
@@ -87,6 +87,42 @@
        justify-content: center;
        margin: 0;
    }
+
+   .inner-cursor{
+    top:5%;
+    left: 50%;
+    position: fixed;
+    width: 10px;
+    height:10px;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    /* mix-blend-mode: difference; */
+    border-radius: 50%;
+    pointer-events: none;
+    transition: width 0.5s, height 0.5s; 
+
+}
+
+.inner-cursor.grow{
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    transition: width 0.5s, height 0.5s;
+}
+
+.outer-cursor{
+    top:5%;
+    left: 50%;
+    position: fixed;
+    width: 50px;
+    height:50px;
+    transform: translate(-50%,-50%);
+    border: 2px solid white;
+    /* mix-blend-mode: difference; */
+    border-radius: 50%;
+    pointer-events: none;
+
+}
 
    .button{
     margin-top: 5%;

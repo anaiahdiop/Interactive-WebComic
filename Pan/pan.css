@@ -1,3 +1,8 @@
+*{
+    box-sizing: border-box;
+    cursor: none;
+}
+
 .frame {
      --x: -400px;  /* double hyphen is a css variable*/
      --y: 250;
@@ -8,23 +13,18 @@
     background-position: top, bottom, var(--x); /* how to actually use a variable */
     background-size: 900px var(--height), 900px var(--height), 1800px 500px; /* sets a bigger size background than the viewport*/ 
     width: 900px; height: 500px; /* this sets the size of the viewing frame*/
-    border: 1px solid white;
+    border: 2px solid white;
     transition: background-size .20s, background-size .20s,background-position .15s; /* any time we change this property we want to do it with a transition of _ secs*/
-    margin-top: 5%;
+    margin-top: 10%;
+    position: relative;
 }
 
-  
-canvas:hover{
-    cursor: url(./assets/leftRight.png),auto;
-    /* cursor: none; */
+.indicator{
+    position: absolute;
+    top: 20%;
+    width:100%;
+    left: 50%;
 }
-
-*{
-    box-sizing: border-box;
-  }
-  
-  
-  
     body{
         /* background-color: #333; */
         background-color:black;
@@ -34,6 +34,50 @@ canvas:hover{
         align-items: center;
         justify-content: center;
         margin: 0;
+    }
+
+    .icon{
+        visibility: hidden;
+        text-align: center;
+        padding: 4px 0;
+        color: black;
+        transition: visibility 0.5s; 
+    }
+
+    .inner-cursor{
+        top:5%;
+        left: 50%;
+        position: fixed;
+        width: 15px;
+        height:15px;
+        transform: translate(-50%,-50%);
+        background-color: white;
+        /* mix-blend-mode: difference; */
+        border-radius: 50%;
+        pointer-events: none;
+        transition: width 0.5s, height 0.5s; 
+    
+    }
+    
+    .inner-cursor.grow{
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        transition: width 0.5s, height 0.5s;
+    }
+    
+    .outer-cursor{
+        top:5%;
+        left: 50%;
+        position: fixed;
+        width: 50px;
+        height:50px;
+        transform: translate(-50%,-50%);
+        border: 2px solid white;
+        /* mix-blend-mode: difference; */
+        border-radius: 50%;
+        pointer-events: none;
+    
     }
 
     .button{

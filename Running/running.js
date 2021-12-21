@@ -92,6 +92,9 @@ canvas.addEventListener("mousedown", function() {
 canvas.addEventListener("mouseup", function() {
     backgroundSpeed = 10;
     setTimeout(function(){window.location.href = '../Trip/trip.html'}, 100);
+    innerCursor.classList.remove("held");
+    outerCursor.classList.remove("held");
+    mouseText.classList.remove("held");
     
     // showSpeed.innerHTML = backgroundSpeed;
     // spriteLayer.staggerFrames = 10

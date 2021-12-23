@@ -124,19 +124,21 @@ async function sleep(ms) {
 }
 
 const sequence = async () => {
+
   for (const state of transformationStates) {
-    // console.log(state.frames)
+    await sleep(2500);
     for (const frame of state.frames) {
+      ctx.drawImage(indicator, 0, 0, 75, 75)
       canvas.style.setProperty('--background', `${frame}`)
       await sleep(400);
-      // await sleep(5000);
     }
     setTimeout(() => {ctx.clearRect(0,0,canvas.width,canvas.height)},100);
     canvas.style.setProperty('--height', 515 + "px");
     setTimeout(() => {canvas.style.setProperty('--height', 0 + "px")},500);
+    ctx.drawImage(indicator, 0, 0, 75, 75)
     popUps = [];
     moveImg.src = './assets/move.png';
-    await sleep(250);
+    await sleep(150);
 
     // transformationStates.forEach((state) => {
   //   await sleep(2000);

@@ -95,10 +95,6 @@ canvas.addEventListener("mouseup", function() {
     innerCursor.classList.remove("held");
     outerCursor.classList.remove("held");
     mouseText.classList.remove("held");
-    
-    // showSpeed.innerHTML = backgroundSpeed;
-    // spriteLayer.staggerFrames = 10
-   
 })
 async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -187,18 +183,6 @@ async function sleep(ms) {
 
     const layers = [layer5,layer4,layer3,
     layer2,spriteLayer,layer1,dialogue,indicator];
-
-
-    // function randomText({
-    //     random = Math.floor(Math.random() * arr.length);
-    //         let img = arr[random];
-    //         console.log(random)
-    //         if (img) {ctx.drawImage(img, 298, 25, 300, 51)}
-    //         setTimeout(() => {ctx.clearRect(0,0,canvas.width,canvas.height)},10000);
-
-    //       requestAnimationFrame(randomText);
-        
-    // }
 
     function parallax(){ 
         ctx.clearRect(0,0,canvas.width,canvas.height);

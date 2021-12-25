@@ -13,7 +13,6 @@ const moveImg = new Image();
 // moveImg.src = ''
 moveImg.src = '';
 
-
 //IMAGES
 const indicator = new Image()
 indicator.src = './assets/indicator.png'
@@ -54,7 +53,6 @@ backgroundLayer17.src = './assets/Transformation/transform17.png';
 const backgroundLayer18 = new Image();
 backgroundLayer18.src = './assets/Transformation/transform18.png';
 
-console.log(backgroundLayer1)
 const transformationStates = [
     {
         name:'first',
@@ -72,42 +70,6 @@ const transformationStates = [
 window.addEventListener('load', (event) => {
   sequence();
   ctx.drawImage(indicator, 0, 0, 75, 75)
-  const backgroundLayer1 = new Image();
-backgroundLayer1.src = './assets/Transformation/transform1.png';
-const backgroundLayer2 = new Image();
-backgroundLayer2.src = './assets/Transformation/transform2.png';
-const backgroundLayer3 = new Image();
-backgroundLayer3.src = './assets/Transformation/transform3.png';
-const backgroundLayer4 = new Image();
-backgroundLayer4.src = './assets/Transformation/transform4.png';
-const backgroundLayer5 = new Image();
-backgroundLayer5.src = './assets/Transformation/transform5.png';
-const backgroundLayer6 = new Image();
-backgroundLayer6.src = './assets/Transformation/transform6.png';
-const backgroundLayer7 = new Image();
-backgroundLayer7.src = './assets/Transformation/transform7.png';
-const backgroundLayer8 = new Image();
-backgroundLayer8.src = './assets/Transformation/transform8.png';
-const backgroundLayer9 = new Image();
-backgroundLayer9.src = './assets/Transformation/transform9.png';
-const backgroundLayer10 = new Image();
-backgroundLayer10.src = './assets/Transformation/transform10.png';
-const backgroundLayer11 = new Image();
-backgroundLayer11.src = './assets/Transformation/transform11.png';
-const backgroundLayer12 = new Image();
-backgroundLayer12.src = './assets/Transformation/transform12.png';
-const backgroundLayer13 = new Image();
-backgroundLayer13.src = './assets/Transformation/transform13.png';
-const backgroundLayer14 = new Image();
-backgroundLayer14.src = './assets/Transformation/transform14.png';
-const backgroundLayer15 = new Image();
-backgroundLayer15.src = './assets/Transformation/transform15.png';
-const backgroundLayer16 = new Image();
-backgroundLayer16.src = './assets/Transformation/transform16.png';
-const backgroundLayer17 = new Image();
-backgroundLayer17.src = './assets/Transformation/transform17.png';
-const backgroundLayer18 = new Image();
-backgroundLayer18.src = './assets/Transformation/transform18.png';
 });
 
 document.addEventListener("mousemove", (e) => {
@@ -134,20 +96,11 @@ document.addEventListener("mousemove", (e) => {
 });
 
 canvas.addEventListener("mousemove", (e) => {
-  // mouseCursor.style.top = e.pageY + "px"
-  // mouseCursor.style.left = e.pageX + "px"
   canvas.style.setProperty('--x', -e.offsetX + "px");
   canvas.style.setProperty('--y', -e.offsetY + "px");
   clearTimeout(timeout);
   timeout = setTimeout(function(){popUp(e.offsetX, e.offsetY)}, 150);
 });
-
-// canvas.addEventListener("click", (e) => {
-//   // ctx.beginPath();
-//   setTimeout(() => {ctx.clearRect(0,0,canvas.width,canvas.height)},100);
-//   canvas.style.setProperty('--height', 515 + "px");
-//   setTimeout(() => {canvas.style.setProperty('--height', 0 + "px")},1150);
-// })
 
 //FUNCTIONS
 async function sleep(ms) {
@@ -155,9 +108,8 @@ async function sleep(ms) {
 }
 
 const sequence = async () => {
-
+  await sleep(1500);
   for (const state of transformationStates) {
-    await sleep(2500);
     for (const frame of state.frames) {
       ctx.drawImage(indicator, 0, 0, 75, 75)
       canvas.style.setProperty('--background', `${frame}`)
@@ -170,13 +122,6 @@ const sequence = async () => {
     popUps = [];
     moveImg.src = './assets/move.png';
     await sleep(150);
-
-    // transformationStates.forEach((state) => {
-  //   await sleep(2000);
-  //   state.frames.forEach((frame) => {
-  //     canvas.style.setProperty('--background', `${frame}`)
-  //     await sleep(2000);
-  // });
   }
   popUps = [];
   await sleep(1500);

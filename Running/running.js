@@ -4,7 +4,7 @@ let innerCursor = document.querySelector('.inner-cursor');
 let outerCursor = document.querySelector('.outer-cursor');
 let mouseText = document.querySelector('.mouse-text');
 const ctx = canvas.getContext('2d');
-let backgroundSpeed = 10; 
+let backgroundSpeed = 12; 
 canvas.width = 600;
 canvas.height = 600;
 
@@ -22,6 +22,10 @@ const text2 = new Image()
 text2.src = './assets/2.png'
 const text3 = new Image();
 text3.src = './assets/3.png'
+const text4 = new Image();
+text4.src = './assets/4.png'
+const blank = new Image();
+blank.src = ' ';
 const backgroundLayer1 = new Image();
 backgroundLayer1.src = './Parallax/layer1.png';
 const backgroundLayer2 = new Image();
@@ -76,15 +80,20 @@ document.addEventListener("mousemove", (e) => {
   });
 
   
-canvas.addEventListener("mousedown", function() {
+canvas.addEventListener("mousedown", async () => {
     backgroundSpeed = 15;
     spriteLayer.spriteState = "faster";
     outerCursor.style.borderColor = "white";
     innerCursor.classList.add("held");
     outerCursor.classList.add("held");
     mouseText.classList.add("held");
-    setTimeout(function(){dialogue.image = text2;}, 2500);
-    setTimeout(function(){dialogue.image = text3;}, 6000);
+    mouseText.innerHTML = "Hold!";
+    setTimeout(function(){dialogue.image = blank;}, 2000);
+    setTimeout(function(){dialogue.image = text2;}, 3500);
+    setTimeout(function(){dialogue.image = blank;}, 6500);
+    setTimeout(function(){dialogue.image = text3;}, 8500);
+    setTimeout(function(){dialogue.image = blank;}, 11500);
+    setTimeout(function(){dialogue.image = text4;}, 13000);
     //text array changes to multiple
 })
 

@@ -7,13 +7,16 @@ const button = document.querySelector(".button")
 button.style.visibility = 'hidden';
 
 const solo1Pic = new Image();
-solo1Pic.src = "./assets/solo1.png";
+// solo1Pic.src = "./assets/solo1.png";
+solo1Pic.src = "./assets/1.jpeg";
 
 const solo2Pic = new Image();
-solo2Pic.src = "./assets/solo2.png";
+// solo2Pic.src = "./assets/solo2.png";
+solo2Pic.src = "./assets/2.jpeg";
 
 const solo3Pic = new Image();
-solo3Pic.src = "./assets/solo3.png";
+// solo3Pic.src = "./assets/solo3.png";
+solo3Pic.src = "./assets/3.jpeg";
 
 
 window.addEventListener('load', (event) => {

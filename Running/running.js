@@ -116,7 +116,6 @@ async function sleep(ms) {
             this.speed = backgroundSpeed + this.speedMod; 
         }
         update(){
-            if(this.image){
                 ctx.drawImage(this.image,this.x,this.y,this.width,this.height,0,0,canvas.width,canvas.height);
                 ctx.drawImage(this.image,this.x - this.width,this.y,this.width,this.height,0,0,canvas.width,canvas.height);
 
@@ -127,9 +126,7 @@ async function sleep(ms) {
                     this.x = 0;
                 }
                 this.x = this.x + this.speed;
-            }
             
-            requestAnimationFrame(this.update);
         }
       
     };

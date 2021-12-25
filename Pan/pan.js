@@ -127,7 +127,7 @@ const sequence = async () => {
   await sleep(1500);
   moveImg.src = ''
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  canvas.style.setProperty('--background', 'url(./assets/finalMove.png')
+  canvas.style.setProperty('--background', 'url(./assets/finalMove.png');
   await sleep(1100);
   window.location.href = '../Running/running.html';
 }

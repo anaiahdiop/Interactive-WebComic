@@ -4,7 +4,7 @@ let innerCursor = document.querySelector('.inner-cursor');
 let outerCursor = document.querySelector('.outer-cursor');
 let mouseText = document.querySelector('.mouse-text');
 const ctx = canvas.getContext('2d');
-let backgroundSpeed = 12; 
+let backgroundSpeed = 9; 
 canvas.width = 600;
 canvas.height = 600;
 
@@ -81,7 +81,8 @@ document.addEventListener("mousemove", (e) => {
 
   
 canvas.addEventListener("mousedown", async () => {
-    backgroundSpeed = 15;
+    backgroundSpeed = 12;
+    spriteLayer.staggerFrames = 12 
     spriteLayer.spriteState = "faster";
     outerCursor.style.borderColor = "white";
     innerCursor.classList.add("held");
@@ -99,7 +100,8 @@ canvas.addEventListener("mousedown", async () => {
 
 
 canvas.addEventListener("mouseup", function() {
-    backgroundSpeed = 10;
+    backgroundSpeed = 9;
+    spriteLayer.staggerFrames = 13
     setTimeout(function(){window.location.href = '../Trip/trip.html'}, 100);
     innerCursor.classList.remove("held");
     outerCursor.classList.remove("held");
@@ -186,7 +188,7 @@ async function sleep(ms) {
     const layer3 = new Layer(backgroundLayer3, 0.6,0,0)
     const layer4 = new Layer(backgroundLayer4, 0.5,0,0)
     const layer5 = new Layer(backgroundLayer5, 0.3,0,0)
-    const spriteLayer = new Sprite(runSprite, 0, 200, 200, runAnimationStates, 'run', 11)
+    const spriteLayer = new Sprite(runSprite, 0, 200, 200, runAnimationStates, 'run', 13)
     const dialogue = new Layer(text1, 0, 305, -45)
     const indicator = new Layer(indicatorImg,0,0,0)
 
